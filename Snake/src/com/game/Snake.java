@@ -1,11 +1,9 @@
-package com.zetcode;
+package com.game;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
-//http://zetcode.com/javagames/animation/
-
-//This code is from a tutorial site.
+//This code is based on a tutorial.
 
 public class Snake extends JFrame {
 

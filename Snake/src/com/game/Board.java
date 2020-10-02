@@ -1,4 +1,4 @@
-package com.zetcode;
+package com.game;
 
 import java.awt.Color;
 import java.awt.Dimension;
