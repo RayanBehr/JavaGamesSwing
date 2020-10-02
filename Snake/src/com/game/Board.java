@@ -98,6 +98,12 @@ public class Board extends JPanel implements ActionListener {
     }
     
     private void doDrawing(Graphics g) {
+    	
+        String msg = String.valueOf(dots);
+        Font small = new Font("Helvetica", Font.ITALIC, 14);
+        g.setColor(Color.white);
+        g.setFont(small);
+        g.drawString(msg, 5, 14);
         
         if (inGame) {
 
