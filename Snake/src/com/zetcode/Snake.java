@@ -9,7 +9,12 @@ import javax.swing.JFrame;
 
 public class Snake extends JFrame {
 
-    public Snake() {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8088634531325732453L;
+
+	public Snake() {
         
         initUI();
     }

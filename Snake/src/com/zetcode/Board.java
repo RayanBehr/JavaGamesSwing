@@ -16,11 +16,11 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener {
-
-    /**
+	
+	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -772123153051087846L;
 	
 	private final int B_WIDTH = 300;
     private final int B_HEIGHT = 300;
@@ -44,7 +44,7 @@ public class Board extends JPanel implements ActionListener {
 
     private Timer timer;
     private Image ball;
-    private Image apple;
+    private Image star;
     private Image head;
 
     public Board() {
@@ -69,7 +69,7 @@ public class Board extends JPanel implements ActionListener {
         ball = iid.getImage();
 
         ImageIcon iia = new ImageIcon("src/resources/apple.png");
-        apple = iia.getImage();
+        star = iia.getImage();
 
         ImageIcon iih = new ImageIcon("src/resources/head.png");
         head = iih.getImage();
@@ -77,14 +77,14 @@ public class Board extends JPanel implements ActionListener {
 
     private void initGame() {
 
-        dots = 300;
+        dots = 3;
 
         for (int z = 0; z < dots; z++) {
             x[z] = 50 - z * 10;
             y[z] = 50;
         }
         
-        locateApple();
+        locateStar();
 
         timer = new Timer(DELAY, this);
         timer.start();
@@ -101,7 +101,7 @@ public class Board extends JPanel implements ActionListener {
         
         if (inGame) {
 
-            g.drawImage(apple, apple_x, apple_y, this);
+            g.drawImage(star, apple_x, apple_y, this);
 
             for (int z = 0; z < dots; z++) {
                 if (z == 0) {
@@ -130,12 +130,12 @@ public class Board extends JPanel implements ActionListener {
         g.drawString(msg, (B_WIDTH - metr.stringWidth(msg)) / 2, B_HEIGHT / 2);
     }
 
-    private void checkApple() {
+    private void checkStar() {
 
         if ((x[0] == apple_x) && (y[0] == apple_y)) {
 
             dots++;
-            locateApple();
+            locateStar();
         }
     }
 
@@ -193,7 +193,7 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
-    private void locateApple() {
+    private void locateStar() {
 
         int r = (int) (Math.random() * RAND_POS);
         apple_x = ((r * DOT_SIZE));
@@ -207,7 +207,7 @@ public class Board extends JPanel implements ActionListener {
 
         if (inGame) {
 
-            checkApple();
+            checkStar();
             checkCollision();
             move();
         }
