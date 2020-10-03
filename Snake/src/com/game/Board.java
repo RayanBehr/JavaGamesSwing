@@ -36,11 +36,11 @@ public class Board extends JPanel implements ActionListener {
     private int star_x;
     private int star_y;
 
-    private boolean leftDirection = false;
-    private boolean rightDirection = true;
-    private boolean upDirection = false;
-    private boolean downDirection = false;
-    private boolean inGame = true;
+    private boolean leftDirection;
+    private boolean rightDirection;
+    private boolean upDirection;
+    private boolean downDirection;
+    private boolean inGame;
 
     private Timer timer;
     private Image ball;
@@ -76,6 +76,12 @@ public class Board extends JPanel implements ActionListener {
     }
 
     private void initGame() {
+    	
+        leftDirection = false;
+        rightDirection = true;
+        upDirection = false;
+        downDirection = false;
+        inGame = true;
 
         dots = 3;
 
@@ -250,6 +256,11 @@ public class Board extends JPanel implements ActionListener {
                 downDirection = true;
                 rightDirection = false;
                 leftDirection = false;
+            }
+            
+            if ((key == KeyEvent.VK_ENTER) && !inGame) {
+            	inGame = true;
+            	initGame();
             }
         }
     }
