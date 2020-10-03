@@ -33,8 +33,8 @@ public class Board extends JPanel implements ActionListener {
     private final int y[] = new int[ALL_DOTS];
 
     private int dots;
-    private int apple_x;
-    private int apple_y;
+    private int star_x;
+    private int star_y;
 
     private boolean leftDirection = false;
     private boolean rightDirection = true;
@@ -107,7 +107,7 @@ public class Board extends JPanel implements ActionListener {
         
         if (inGame) {
 
-            g.drawImage(star, apple_x, apple_y, this);
+            g.drawImage(star, star_x, star_y, this);
 
             for (int z = 0; z < dots; z++) {
                 if (z == 0) {
@@ -138,7 +138,7 @@ public class Board extends JPanel implements ActionListener {
 
     private void checkStar() {
 
-        if ((x[0] == apple_x) && (y[0] == apple_y)) {
+        if ((x[0] == star_x) && (y[0] == star_y)) {
 
             dots++;
             locateStar();
@@ -202,10 +202,10 @@ public class Board extends JPanel implements ActionListener {
     private void locateStar() {
 
         int r = (int) (Math.random() * RAND_POS);
-        apple_x = ((r * DOT_SIZE));
+        star_x = ((r * DOT_SIZE));
 
         r = (int) (Math.random() * RAND_POS);
-        apple_y = ((r * DOT_SIZE));
+        star_y = ((r * DOT_SIZE));
     }
 
     @Override
